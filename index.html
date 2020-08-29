@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>OCP Club Maker</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="./stylee.css">
+
+  <!-- =======================================================
+  * Template Name: KnightOne - v2.1.0
+  * Template URL: https://bootstrapmade.com/knight-simple-one-page-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+<style>
+  /*
+  1-12 Ratio for SVG size-to-background position (sprite sheet)
+      50x50 =  600 background position
+    100x100 = 1200 background position
+    200x200 = 2400 background position
+        Etc.
+
+  Note: Axis of wheels about 76px when size = 100
+*/
+.boebot {
+  position: absolute;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1255650/gizmo_boebot.svg);
+  background-size: cover;
+  animation: 
+    theySeeMeRollin 10s 0s ease-in-out infinite,
+    tryinToCatchMeRidinDirty 1s 0s steps(12) infinite;
+}
+
+/* 
+  Change as needed per ratio notes above (12 to 1)
+*/
+@keyframes tryinToCatchMeRidinDirty {
+  100% { background-position: 0 -1200px; }
+}
+
+
+/* 
+  -200px = offset for radius
+    76px = approximate axis of wheels (i.e.: 76% of height)
+ -360deg = counter clockwise rotation
+*/
+@keyframes theySeeMeRollin {
+  from {
+    transform: translate(58vw, 45vh) rotate(0deg);
+    transform-origin: -200px 76px;
+  }
+  to {
+    transform: translate(58vw, 45vh) rotate(-360deg);
+    transform-origin: -200px 76px;
+  }
+}
+
+/* Non-essential bits */
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {margin:0;padding:0;font-size:18px;color: #141414;line-height:1.5;  font-family:'Open Sans', sans-serif;}
+a {
+  color: #2c779e;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+a:hover {color: #9f982e;}
+h2 {font-family: 'Roboto', sans-serif; margin: 1em 0;}
+h2.border-line {
+    overflow: hidden;
+    margin: .3em 0 .7em;
+    padding: 0 0 3px;
+}
+h2.border-line::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    background: #c2c2c2;
+    margin-right: -100%;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+.container {
+    max-width: 1050px;
+    width: auto;
+    padding: 2em 20px;
+    margin: 0 auto;
+}
+.spacer-toc {
+    height: 1.8em;
+    display: flex;
+    align-items: center;
+}
+.spacer-toc .fa {
+    font-size: 1.4em;
+    color: #c2c2c2;
+}
+
+/* Upcoming-events 
+-----------------------------------------------------------*/
+/* outer & general */
+.upcoming-events-wrap {margin-bottom: 30px;}
+.upcoming-events {
+	display: grid;
+	grid-template-areas: "date" "content";
+	max-width: 480px;
+	background: #fff;
+	margin: 0 auto 2em;
+	box-shadow: 0 10px 8px -8px #b3b3b3;
+	transition: 0.4s;
+}
+.upcoming-events:hover {
+	box-shadow: 0 12px 8px -8px #999;
+}
+.event-date,
+.event-date .dt-wrap,
+.event-content,
+.content-inner .ul-details,
+.content-inner .ul-details li,
+.content-media,
+.content-img,
+.content-img a,
+.content-social,
+.content-social a {
+	display: flex;
+}
+
+	/* 0/1 | .event-date 
+	---------------------------*/
+.event-date {
+	grid-area: date;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	padding: 24px;
+	cursor: help;
+	line-height: 1;
+	text-transform: uppercase;
+	transition: 0.4s ease;
+}
+.event-date:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 12px;
+	z-index:2;
+	background: #2c779e;
+	transition: 0.4s ease;
+}
+.upcoming-events:nth-child(even) .event-date:before {background: #9e2d3f;}
+.upcoming-events:hover .event-date {color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,.23);}
+.upcoming-events:hover .event-date:before {background: #9f982e; width: 100%;}
+.upcoming-events:nth-child(even):hover .event-date:before {background: #9f982e;}
+
+		/* 0/1/a */
+.event-date .dt-wrap {
+	z-index: 2;  
+	flex-direction: row;
+	align-items: center;
+}
+.event-date .day {font-weight: 600;}
+.event-date .day,
+.event-date .day.day-md {font-size: 36px;}
+.event-date .day.day-sm {font-size: 32px;}
+
+.event-date .month-year {
+	font-weight: 600;
+	padding: 0 10px;
+}
+		/* 0/1/b */
+.event-date .dt-ven {
+    z-index: 2;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .5px;
+}
+	/* 0/2 | .event-content 
+	---------------------------*/
+.event-content {
+	grid-area: content;
+	flex-direction: column;
+	padding: 24px;
+	border-top: 2px solid #9f982e;
+}
+		/* 0/2/a | .content-inner */
+.content-inner {padding: 0;}
+.content-inner h2 {
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.15;
+	margin: 0 0 12px;
+}
+.content-inner p {
+	color: #2f4f4f;
+	line-height: 1.25;
+	margin: 0 0 12px;
+}
+.content-inner p.cnt-last {margin-bottom: 0;}
+
+.content-inner .ul-details {
+	flex-flow: row wrap;
+	font-size: 16px;
+	color: #999;
+}
+.content-inner .ul-details li {
+	flex-direction: row;
+	align-items: baseline;
+	margin-right: 20px;
+}
+.content-inner .ul-details .fa {
+	width: 16px;
+	margin-right: 5px;
+	text-align: center;
+}
+.content-inner .ul-details .fa {color: #2c779e;}
+.content-inner .ul-details .fa-calendar-times-o {color: red;}
+
+.content-inner .cnt-ensemble {
+	padding-top: 12px;
+	font-weight: 600;
+}
+.content-inner .cnt-details {font-size: 14px;}
+.content-inner .cnt-details span {display: block;}
+
+		/* 0/2/b | .content-media */
+.content-media {
+	flex-direction: column;
+}
+.content-img {order: 2;}
+.content-social {order: 1;}
+
+.content-img {
+	justify-content: center;
+	align-items: flex-start;
+	width: 100%;
+	margin: 24px auto 0;
+	border: 1px solid #2f4f4f;
+	position: relative;
+	transition: 0.4s;
+}
+.content-img a {
+	justify-content: center;
+	align-items: center;
+}
+.content-img .fa {
+	position: absolute;
+	color: rgba(0,0,0,.28);
+	font-size: 2.5em;
+	text-shadow: 1px 1px 2px rgba(255,255,255,.9);
+	transition: 0.4s;
+}
+.content-img img {
+	width: 100%;
+	max-width: 100%;
+	height: 170px;
+	opacity:.3;
+	object-fit: cover;
+	transition: 0.4s;
+}
+.content-img img:hover {opacity: 1;}
+.content-img:hover .fa {display: none;}
+		
+		/* 0/2/c | .content-social */
+.content-social {
+	min-height: 50px;
+	margin: 24px 0 0 0;
+	background: #f5f5f5;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.content-social a {
+	width: 45px;
+	height: 45px;
+	justify-content: center;
+	align-items: center;
+}
+/* media queries 
+---------------------------------------------- */
+@media (min-width: 768px) {
+	.upcoming-events-wrap {
+		box-shadow: 0 10px 8px -8px #b3b3b3;
+	}
+	.upcoming-events-wrap .upcoming-events:last-child {border-bottom:0;}
+	.upcoming-events {
+		grid-template-columns: 1fr 4fr;
+		grid-template-areas: "date content";
+		max-width: 100%;
+		margin: 0 auto;
+		box-shadow: none;
+		border-bottom: 2px solid #9f982e;
+	}
+	.upcoming-events:hover {box-shadow: none;}
+	.event-date {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 12px 0 12px 18px;
+		//background: #f5f5f5;
+	}
+	.event-date .dt-wrap {
+		flex-direction: column;
+		align-items: flex-start;
+		padding-left:12px;
+	}
+	.event-date .day {font-size: 60px;}
+	.event-date .month-year {padding: 0;}
+	.event-date .dt-ven {
+		width: 100%;
+		font-size: 12px;
+		padding: 12px 12px 6px;
+	}
+	.event-content {
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: row;
+		padding: 12px;
+		border: 0;
+	}
+	.content-inner {padding: 12px;}
+	.content-media {
+		flex-direction: row;
+		justify-content: flex-end;
+		align-self: stretch;
+	}
+	.content-img {order: 1;}
+	.content-social {order: 2;}
+	
+	.content-img {
+		align-items: center;
+		align-self: center;
+		width: 86px;
+		margin:0;
+	}
+	.content-img .fa {font-size: 1.7em;}
+	.content-img img {
+		width: 86px;
+		max-width: 86px;
+		height: 121px;
+		object-fit: scale-down;
+	}
+	.content-social {
+		flex-direction: column;
+		width: 50px;
+		margin: 0;
+	}
+}
+:root{
+    --background-dark: #2d3548;
+    --text-light: rgba(255,255,255,0.6);
+    --text-lighter: rgba(255,255,255,0.9);
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 64px;
+    --width-container: 1200px;
+  }
+  
+  *{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html{
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+  }
+  
+  body{
+    height: 100%;
+  }
+  
+  .hero-section{
+    align-items: flex-start;
+    background-image: linear-gradient(15deg, #0f4667 0%, #2a6973 150%);
+    display: flex;
+    min-height: 100%;
+    justify-content: center;
+    padding: var(--spacing-xxl) var(--spacing-l);
+  }
+  
+  .card-grid{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: var(--spacing-l);
+    grid-row-gap: var(--spacing-l);
+    max-width: var(--width-container);
+    width: 100%;
+
+
+  
+
+  }
+  .back{
+    background-image: url('assets/img/back2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+  }
+  .backg{
+    background-image: url('assets/img/back3.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+  }
+  .backgr{
+    background-image: url('assets/img/back5.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+  }
+  .backgrd{
+    background-image: url('assets/img/back7.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+  }
+  @media(min-width: 540px){
+    .card-grid{
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+  
+  @media(min-width: 960px){
+    .card-grid{
+      grid-template-columns: repeat(4, 1fr); 
+    }
+  }
+  
+  .card{
+    list-style: none;
+    position: relative;
+  }
+  
+  .card:before{
+    content: '';
+    display: block;
+    padding-bottom: 150%;
+    width: 100%;
+  }
+  
+  .card__background{
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--spacing-l);
+    bottom: 0;
+    filter: brightness(0.75) saturate(1.2) contrast(0.85);
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: center;
+    trsnsform: scale(1) translateZ(0);
+    transition: 
+      filter 200ms linear,
+      transform 200ms linear;
+  }
+  
+  .card:hover .card__background{
+    transform: scale(1.05) translateZ(0);
+  }
+  
+  .card-grid:hover > .card:not(:hover) .card__background{
+    filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+  }
+  
+  .card__content{
+    left: 0;
+    padding: var(--spacing-l);
+    position: absolute;
+    top: 0;
+  }
+  
+  .card__category{
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-s);
+    text-transform: uppercase;
+  }
+  
+  .card__heading{
+    color: var(--text-lighter);
+    font-size: 1.9rem;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+    line-height: 1.4;
+    word-spacing: 100vw;
+  }
+</style>
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center">
+        <div class="col-xl-9 d-flex align-items-center justify-content-between">
+          <h1 class="logo"><a href="index.html"><span class="text-primary">OCP</span> CLub Maker</a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+          <nav class="nav-menu d-none d-lg-block">
+            <ul>
+              <li><a href="#services">PRÉSENTATION</a></li>
+              
+              <li class="drop-down"><a href="#service">CLUBS</a>
+                <ul>
+                  <li><a href="astro/index.html">L'astronomie</a></li>
+                  <li><a href="plane/index.html">Aéronautique</a></li>
+                  <li><a href="autonplanner/index.html">Robotique</a></li>
+                  <li><a href="circuit/index.html">Électronique</a></li>
+                  <li><a href="3DObjectViewer/3DObjectViewer.html">3D</a></li>
+                </ul>
+              </li>
+              <li><a href="videos/index.html">VIDÉOS</a></li>
+              <li><a href="#portfolio">EQUIPEMENTS</a></li>
+              <li><a href="#pricing">AGENDA</a></li>
+              <li><a href="elarning/">E-LEARNING</a></li>
+
+              <li><a href="#contact">CONTACT</a></li>
+
+            </ul>
+          </nav><!-- .nav-menu -->
+
+          
+        </div>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center">
+    <div>
+    <div class="boebot"></div>
+
+    <div class="container">
+      
+      <div class="row justify-content-center">
+        
+        <div class="col-xl-8">
+          
+          <h1 class="bg-dark"><span class="text-primary ">OCP</span> Club Maker</h1>
+          <h2 class="bg-dark">L'innovation numérique à la portée de tous</h2>
+          
+          <a href="https://www.youtube.com/watch?v=ohL5v9srNTk&t=51s" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+          
+        </div>
+        
+      </div>
+    </div>
+    </div>
+    
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+   
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services backgrd">
+      <div class="container">
+
+        <div class="section-title">
+          <h2 class="text-white">PRÉSENTATION</h2>
+          <p class="bg-dark text-light">Dans le cadre de l'extension de la dynamique Mouvement à l’ensemble des collaborateurs et à leurs familles, et afin de faire évoluer les mindsets et de penser å de nouvelles manières de libérer les énergies. La situation OCP Club Maker a été créer en 1er février 2018. Le OCP Club maker est pensé comme incubateur des idées et des progrès techniques pour encourager les jeunes talents, avec comme vision : Learn, Make & Share. Dans cet esprit, des ateliers de formations, master classes, workshop, sortie d'exploration, destinės aux collaborateurs OCP et leurs familles sont organisés par nous équipes makers dans les différentes ville du Maroc. Aujourd'hui l'innovation est l'un des enjeux majeur pour assurer la pérennité des entreprises, et parce que les idées font le monde rejoignez-nous pour contribuer à un monde meilleur.
+          </p>
+        </div>
+<bod>
+  <figure class="snip1096 yellow"><img src="assets/img/about-mission.jpg" alt="sample47" />
+    <figcaption>
+      <h3>Think it</h3>
+      <p>Suivre sa passion technologique, demeurer derrière ses motivations, se lancer dans les défis, penser à apprendre et approfondir ses connaissances, c’est le but derrière notre club qui sert à l'intégration des différentes capacités, afin de créer une atmosphère d’échange et de compétition, et tout cela pour vous faire réfléchir, innover et affiner vos compétences.</p>
+    </figcaption>
+    <a href="#"></a>
+  </figure>
+  <figure class="snip1096 red hover"><img src="assets/img/about-plan.jpg" alt="sample39" />
+    <figcaption>
+      <h3>Make it</h3>
+      <p>Libérer votre future, vos créativités, vos compétences, cultiver vos talents, pour cela nous mettons à votre disposition une ressource individualisée sur mesure, une équipe à votre disposition pour vous accompagner et vous acquérir les fondements pour vous passer à l’action, et faire de vos passions une réalité.</p>
+    </figcaption>
+    <a href="#"></a>
+  </figure>
+  <figure class="snip1096 blue"><img src="assets/img/about-vision.jpg" alt="sample6" />
+    <figcaption>
+      <h3>Share it</h3>
+      <p>Ocp club maker est un espace unique d’échanges et de partage d’expériences, le but est de contribuer au développement technologique et scientifique. Notre club adopte le partage comme un principe de base pour créer une atmosphère d’échange, et tout cela pour que chacun puisse s’intégrer et créer son propre cadre de travail.</p>
+    </figcaption>
+    <a href="#"></a>
+  </figure>
+      </bod>
+    </section><!-- End Services Section -->
+    <section class="back" id="service">
+      <div class="container">
+        <header class="section-header wow fadeInUp">
+          <div class="section-title">
+          <h2 class="text-white">CLUBS</h2>
+        </div>
+        <br></br>
+
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+       
+        <div class="card-grid">
+          <a class="card" href="#">
+            <div class="card__background" style="background-image: url(assets/img/rb.jpg)"></div>
+            <div class="card__content">
+              <p class="card__heading text-light bg-dark text-center">Robotique</p>
+              <h3 class="card__category text-light">Innover, créer, résoudre des énigmes, avoir son robot … accédé à notre club, vous trouverez votre espace idéale pour vos idées, vos conceptions et vos réalisations, pour vous initier au monde du robotisme.</h3>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <div class="card__background" style="background-image: url(assets/img/astro.jpg)"></div>
+            <div class="card__content">
+              <p class="card__heading text-light bg-dark text-center">L'astronomie</p>
+              <h3 class="card__category text-light">Aimez-vous l’espace ? notre club vous fera découvrir ses dimensions et ses infinis à l’aide des ateliers d'observation, de bricolage et séjour astro. Rejoignez notre votre club pour vous lancer dans les infinités de l’univers !</h3>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <div class="card__background" style="background-image: url(assets/img/drone.jpeg)"></div>
+            <div class="card__content">
+              <p class="card__heading text-light bg-dark text-center">Aéronautique</p>
+              <h3 class="card__category text-light">Votre passion est la télé-pilotage, pour découvrir ce monde des aéronefs, Ocp club maker vous offre une expérience de vol unique.</h3>
+            </div>
+          </li>
+          <a class="card" href="#">
+            <div class="card__background" style="background-image: url(assets/img/print.png)"></div>
+            <div class="card__content">
+              <p class="card__heading text-light bg-dark text-center">3D</p>
+              <h3 class="card__category text-light">Voulez-vous conceptualisez en 3D ? Ocp club maker vous offre l’opportunité pour créer des jeux vidéo, Documentaires vidéo en 3 D, Photographie… Rejoignez notre club et testez nos formations, nos ateliers !</h3>
+            </div>
+          </a>
+        <div>
+
+      </div>
+    </section>
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-left">
+            <div class="section-title">
+            <h2 class="text-white">NOS PARTENAIRES</h2>
+          </div>
+        </div>
+
+          <div class="col-lg-3 cta-btn-container text-center">
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= Features Section ======= -->
+   
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container">
+
+        <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          
+
+        </div>
+
+      </div>
+    </section><!-- End Clients Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+
+       
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio backg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2 class='text-white'>EQUIPEMENTS</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">TOUS</li>
+              <li data-filter=".filter-app"> ATELIER MÉCANIQUE</li>
+              <li data-filter=".filter-card">ATELIER ÉLECTRONIQUE</li>
+              <li data-filter=".filter-web">ATELIER AÉRONAUTIQUE</li>
+              <li data-filter=".filter-web">IMPRESSION 3D</li>
+              <li data-filter=".filter-web">SKY-WATCHER</li>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>ATELIER de montage</h4>
+              <p>Super Kit - VEX Robotics</p>
+              <a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="atelierdemontage.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>ATELIER MÉCANIQUE</h4>
+              <p>Perceuse à Colonne Bosch - PBD 40</p>
+              <a href="assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="ateliermecanique.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Chassis Crone FPV</h4>
+              <p>Châssis QAV-R 2 Slam</p>
+              <a href="assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>DRONES FPV</h4>
+              <p>ARRIS X220 220mm RC Quadcopter</p>
+              <a href="assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>DRONES</h4>
+              <p>Dji Phantom 4 Pro</p>
+              <a href="assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>ATELIER ÉLECTRONIQUE</h4>
+              <p>fer à souder, pinces coupantes</p>
+              <a href="assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+              <a href="atelierelectronic.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Télescope SKYwatcher</h4>
+              <p>Télescope STELESCOPE 130</p>
+              <a href="assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>3D</h4>
+              <p>da vinci aio 1.0</p>
+              <a href="assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Modélisation 3D</h4>
+              <p>SERVICE PROTOTYPAGE</p>
+              <a href="assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing backgr">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>AGENDA</h2>
+          <p>Retrouvez ici les dates et horaires des différents&nbsp;<strong>ateliers et évènements</strong>&nbsp;que OCP Club Maker organise.Si vous avez des idées d’activités à nous soumettre,&nbsp;contactez-nous!</p>
+        </div>
+        <div class="container">
+
+          <div id="2019" class="spacer-toc"><i class="fa fa-calendar"></i></div>
+          <h2 class="border-line">2020</h2>
+          
+          <!-- 2019 -->
+          <div class="upcoming-events">
+              <div class="event-date" title="Saturday, 20 April 2019">
+                  <div class="dt-wrap">
+                      <span class="day">20-22</span>
+                      <span class="month-year">AVR, 2020</span>
+                  </div>
+                  <div class="dt-ven"></div>
+              </div>
+              <div class="event-content">
+                  <div class="content-inner">
+                      <h2><a href="" target="_blank" title="">VEX U Robotics World Championship</a></h2>
+                      <ul class="ul-details">
+                          <li><span><i class="fa fa-map-marker"></i></span>Lundi- Mercredi</li>
+                          <li><span><i class="fa fa-dot-circle-o"></i></span>11:30 PM</li>
+                          <li><span><i class="fa fa-calendar-times-o"></i></span><span style="color:red;">Canceled [(Covid-19)]</span></li>
+                      </ul>
+                      <p class="cnt-ensemble cnt-last">Louisville Kentucky, USA</p>
+                  </div>
+                  <div class="content-media">
+                      <div class="content-img">
+                          <a href="assets/img/agenda/vexchamp.png" onclick="if (!lightboxLoaded) return false" class="w-fancybox">
+                              <img src="assets/img/agenda/vexchamp.png" title="Eklipsis Logo" alt="eklipsis logo | Eklipsis Vocal Ensemble">
+                              <i class="fa fa-search-plus"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="upcoming-events">
+              <div class="event-date" title="Saturday, 20 April 2019">
+                  <div class="dt-wrap">
+                      <span class="day">22-24</span>
+                      <span class="month-year">AVR, 2020</span>
+                  </div>
+                  <div class="dt-ven"></div>
+              </div>
+              <div class="event-content">
+                  <div class="content-inner">
+                      <h2>VRC High School World Championship</h2>
+                      <ul class="ul-details">
+                          <li><span><i class="fa fa-map-marker"></i></span>Mercredi-Vendredi</li>
+                          <li><span><i class="fa fa-dot-circle-o"></i></span>11:30 PM</li>
+                          <li><span><i class="fa fa-calendar-times-o"></i></span><span style="color:red;">Canceled [(Covid-19)]</span></li>
+                      </ul>
+                      <p class="cnt-ensemble cnt-last">Louisville Kentucky, USA</p>
+                  </div>
+                  <div class="content-media">
+                      <div class="content-img">
+                          <a href="assets/img/agenda/vrc.png" onclick="if (!lightboxLoaded) return false" class="w-fancybox">
+                              <img src="assets/img/agenda/vrc.png" title="Eklipsis Logo" alt="eklipsis logo | Eklipsis Vocal Ensemble">
+                              <i class="fa fa-search-plus"></i>
+                          </a>
+                      </div>
+                     
+                  </div>
+              </div>
+          </div>
+              <div class="upcoming-events">
+                  <div class="event-date" title="Saturday, 20 April 2019">
+                      <div class="dt-wrap">
+                          <span class="day">01</span>
+                          <span class="month-year">MAR, 2020</span>
+                      </div>
+                      <div class="dt-ven"></div>
+                  </div>
+                  <div class="event-content">
+                      <div class="content-inner">
+                          <h2><a href="" target="_blank" title="">VEX U MOROCCO NATIONALS 2020</a></h2>
+                          <ul class="ul-details">
+                              <li><span><i class="fa fa-map-marker"></i></span>Dimanche</li>
+                              <li><span><i class="fa fa-dot-circle-o"></i></span>9:30 PM - 19:00 PM</li>
+                          </ul>
+                          <p class="cnt-ensemble cnt-last">Cultral Center Of Agdal Rabat, Morocco</p>
+                      </div>
+                      <div class="content-media">
+                          <div class="content-img">
+                              <a href="assets/img/agenda/vexu.png" onclick="if (!lightboxLoaded) return false" class="w-fancybox">
+                                  <img src="assets/img/agenda/vexu.png" title="Eklipsis Logo" alt="eklipsis logo | Eklipsis Vocal Ensemble">
+                                  <i class="fa fa-search-plus"></i>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="upcoming-events">
+                  <div class="event-date" title="Saturday, 20 April 2019">
+                      <div class="dt-wrap">
+                          <span class="day">01</span>
+                          <span class="month-year">MAR, 2020</span>
+                      </div>
+                      <div class="dt-ven"></div>
+                  </div>
+                  <div class="event-content">
+                      <div class="content-inner">
+                          <h2>VEX VRC High School MOROCCO NATIONALS 2020</h2>
+                          <ul class="ul-details">
+                              <li><span><i class="fa fa-map-marker"></i></span>Dimanche</li>
+                              <li><span><i class="fa fa-dot-circle-o"></i></span>9:30 PM - 19:00 PM</li>
+                          </ul>
+                          <p class="cnt-ensemble cnt-last">Cultral Center Of Agdal Rabat, Morocco</p>
+                      </div>
+                      <div class="content-media">
+                          <div class="content-img">
+                              <a href="assets/img/agenda/clawbot.png" onclick="if (!lightboxLoaded) return false" class="w-fancybox">
+                                  <img src="assets/img/agenda/clawbot.png" title="Eklipsis Logo" alt="eklipsis logo | Eklipsis Vocal Ensemble">
+                                  <i class="fa fa-search-plus"></i>
+                              </a>
+                          </div>
+                         
+                      </div>
+                  </div>
+              </div>
+              <div class="upcoming-events">
+                  <div class="event-date" title="Saturday, 20 April 2019">
+                      <div class="dt-wrap">
+                          <span class="day">29</span>
+                          <span class="month-year">FEV, 2020</span>
+                      </div>
+                      <div class="dt-ven"></div>
+                  </div>
+                  <div class="event-content">
+                      <div class="content-inner">
+                          <h2><a href="" target="_blank" title="">VEX IQ Challenge Middle School MOROCCO NATIONALS 2020</a></h2>
+                          <ul class="ul-details">
+                              <li><span><i class="fa fa-map-marker"></i></span>Samedi</li>
+                              <li><span><i class="fa fa-dot-circle-o"></i></span>9:30 PM - 19:00 PM</li>
+                          </ul>
+                          <p class="cnt-ensemble cnt-last">Cultral Center Of Agdal Rabat, Morocco</p>
+                      </div>
+                      <div class="content-media">
+                          <div class="content-img">
+                              <a href="assets/img/agenda/vexiqrobot.png" onclick="if (!lightboxLoaded) return false" class="w-fancybox">
+                                  <img src="assets/img/agenda/vexiqrobot.png" title="Eklipsis Logo" alt="eklipsis logo | Eklipsis Vocal Ensemble">
+                                  <i class="fa fa-search-plus"></i>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="upcoming-events">
+                  <div class="event-date" title="Saturday, 20 April 2019">
+                      <div class="dt-wrap">
+                          <span class="day ">16</span>
+                          <span class="month-year">FEV, 2020</span>
+                      </div>
+                  </div>
+                  <div class="event-content">
+                      <div class="content-inner">
+                          <h2>OCP CLUB MAKER VEX ROBOTICS COMPETITION (VRC)</h2>
+                          <ul class="ul-details">
+                              <li><span><i class="fa fa-map-marker"></i></span>Samedi</li>
+                              <li><span><i class="fa fa-dot-circle-o"></i></span>9:30 PM - 18:00 PM</li>
+                          </ul>
+                          <p class="cnt-ensemble cnt-last">OCP Club Maker Bouskoura</p>
+                      </div>
+                      <div class="content-media">
+                          <div class="content-img">
+                              <a href="assets/img/agenda/tower.png" onclick="if (!lightboxLoaded) return false" class="w-fancybox">
+                                  <img src="assets/img/agenda/tower.png" title="Eklipsis Logo" alt="eklipsis logo | Eklipsis Vocal Ensemble">
+                                  <i class="fa fa-search-plus"></i>
+                              </a>
+                          </div>
+                         
+                      </div>
+                  </div>
+              </div>
+              <div class="upcoming-events">
+                  <div class="event-date" title="Saturday, 20 April 2019">
+                      <div class="dt-wrap">
+                          <span class="day">01</span>
+                          <span class="month-year">FEV, 2020</span>
+                      </div>
+                      <div class="dt-ven"></div>
+                  </div>
+                  <div class="event-content">
+                      <div class="content-inner">
+                          <h2><a href="" target="_blank" title="">OCP CLUB MAKER VEX IQ</a></h2>
+                          <ul class="ul-details">
+                              <li><span><i class="fa fa-map-marker"></i></span>Samedi</li>
+                              <li><span><i class="fa fa-dot-circle-o"></i></span>9:30 PM - 18:00 PM</li>
+                          </ul>
+                          <p class="cnt-ensemble cnt-last">OCP CLUB CASABLANCA</p>
+                      </div>
+                      <div class="content-media">
+                          <div class="content-img">
+                              <a href="assets/img/agenda/vexiq.png" onclick="if (!lightboxLoaded) return false" class="w-fancybox">
+                                  <img src="assets/img/agenda/vexiq.png" title="Eklipsis Logo" alt="eklipsis logo | Eklipsis Vocal Ensemble">
+                                  <i class="fa fa-search-plus"></i>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="upcoming-events">
+                  <div class="event-date" title="Saturday, 20 April 2019">
+                      <div class="dt-wrap">
+                          <span class="day ">26</span>
+                          <span class="month-year">JAN, 2020</span>
+                      </div>
+                  </div>
+                  <div class="event-content">
+                      <div class="content-inner">
+                          <h2>WORKSHOP ROBOTIQUE</h2>
+                          <ul class="ul-details">
+                              <li><span><i class="fa fa-map-marker"></i></span>Samedi</li>
+                              <li><span><i class="fa fa-dot-circle-o"></i></span>9:30 PM - 18:00 PM</li>
+                          </ul>
+                          <p class="cnt-ensemble cnt-last">OCP Club Maker Bouskoura</p>
+                      </div>
+                      <div class="content-media">
+                          <div class="content-img">
+                              <a href="assets/img/agenda/vex.png" onclick="if (!lightboxLoaded) return false" class="w-fancybox">
+                                  <img src="assets/img/agenda/vex.png" title="Eklipsis Logo" alt="eklipsis logo | Eklipsis Vocal Ensemble">
+                                  <i class="fa fa-search-plus"></i>
+                              </a>
+                          </div>
+                         
+                      </div>
+                  </div>
+              </div>
+              <div class="upcoming-events">
+                  <div class="event-date" title="Saturday, 20 April 2019">
+                      <div class="dt-wrap">
+                          <span class="day">07</span>
+                          <span class="month-year">JAN, 2020</span>
+                      </div>
+                      <div class="dt-ven"></div>
+                  </div>
+                  <div class="event-content">
+                      <div class="content-inner">
+                          <h2><a href="" target="_blank" title="">FORMATION IMPRESSION 3D</a></h2>
+                          <ul class="ul-details">
+                              <li><span><i class="fa fa-map-marker"></i></span>Jeudi</li>
+                              <li><span><i class="fa fa-dot-circle-o"></i></span>9:30 PM - 16:00 PM</li>
+                          </ul>
+                          <p class="cnt-ensemble cnt-last">OCP Club Maker Bouskoura</p>
+                      </div>
+                      <div class="content-media">
+                          <div class="content-img">
+                              <a href="assets/img/agenda/3d.png" onclick="if (!lightboxLoaded) return false" class="w-fancybox">
+                                  <img src="assets/img/agenda/3d.png" title="Eklipsis Logo" alt="eklipsis logo | Eklipsis Vocal Ensemble">
+                                  <i class="fa fa-search-plus"></i>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="upcoming-events">
+                  <div class="event-date" title="Saturday, 20 April 2019">
+                      <div class="dt-wrap">
+                          <span class="day">06</span>
+                          <span class="month-year">JAN, 2020</span>
+                      </div>
+                  </div>
+                  <div class="event-content">
+                      <div class="content-inner">
+                          <h2>FORMATION DRONE</h2>
+                          <ul class="ul-details">
+                              <li><span><i class="fa fa-map-marker"></i></span>Mercredi</li>
+                              <li><span><i class="fa fa-dot-circle-o"></i></span>9:30 PM - 16:00 PM</li>
+                          </ul>
+                          <p class="cnt-ensemble cnt-last">OCP Club Maker Bouskoura</p>
+                      </div>
+                      <div class="content-media">
+                          <div class="content-img">
+                              <a href="assets/img/agenda/drone.png" onclick="if (!lightboxLoaded) return false" class="w-fancybox">
+                                  <img src="assets/img/agenda/drone.png" title="Eklipsis Logo" alt="eklipsis logo | Eklipsis Vocal Ensemble">
+                                  <i class="fa fa-search-plus"></i>
+                              </a>
+                          </div>
+                         
+                      </div>
+                  </div>
+              </div>
+
+        
+
+        </div>
+
+      </div>
+    </section><!-- End Pricing Section -->
+
+    <!-- ======= Faq Section ======= -->
+    
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact bg-white">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>NOUS CONTACTER</h2>
+        </div>
+      </div>
+
+      <div>
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13318.444579380048!2d-7.6442127!3d33.4333809!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe33f3304f6e51e1d!2sR%C3%A9sidence%20MAYSSANE%20BOUSKOURA!5e0!3m2!1sfr!2sma!4v1584464403707!5m2!1sfr!2sma" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <div class="container">
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="ri-map-pin-line"></i>
+                <h4>Address:</h4>
+                <p>OCP Club Maker , MAYSSANE BOUSKOURA, CASABLANCA.</p>
+              </div>
+
+              <div class="email">
+                <i class="ri-mail-line"></i>
+                <h4>Email:</h4>
+                <p>ocpmaker@ocpgroup.ma</p>
+              </div>
+
+              <div class="phone">
+                <i class="ri-phone-line"></i>
+                <h4>Numéro De Téléphone:</h4>
+                <p>+212661979494</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>Retrouvez-nous Sur Les Réseaux Sociaux</h3>
+      <div class="social-links">
+        <a href="https://www.facebook.com/ocpclubmaker"  target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/ocpclubmaker/"  target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCXzXMp-TdbeyIN_Re5o4-dw"  target="_blank" class="google-plus"><i class="bx bxl-youtube"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>OCP CLub Maker</span></strong>. All Rights Reserved
+      </div>
+      
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+
+</body>
+
+</html>

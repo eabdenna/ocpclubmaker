@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title dir="ltr">Système solaire 3D</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css'><link rel="stylesheet" href="./style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<link href="../assets/img/favicon.png" rel="icon">
+<link href="../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+
+<link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  </head>
+  <header id="header" class="fixed-top header-inner-pages">
+		<div class="container-fluid">
+	  
+		  <div class="row justify-content-center">
+			<div class="col-xl-9 d-flex align-items-center justify-content-between">
+			  <h1 class="logo"><a href="../index.html">OCP CLub Maker</a></h1>
+			  <!-- Uncomment below if you prefer to use an image logo -->
+			  <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+	  
+			  <nav class="nav-menu d-none d-lg-block">
+				<ul>
+				  <li><a href="../index.html#services">PRÉSENTATION</a></li>
+				  
+				  <li class="drop-down"><a href="../index.html#service">CLUBS</a>
+					<ul>
+						<li><a href="../astro/index.html">L'astronomie</a></li>
+						<li><a href="../plane/index.html">Aéronautique</a></li>
+						<li><a href="../autonplanner/index.html">Robotique</a></li>
+						<li><a href="../3DObjectViewer/3DObjectViewer.html">3D</a></li>
+					</ul>
+				  </li>
+				  <li><a href="../index.html#services">VIDÉOS</a></li>
+				  <li><a href="../index.html#portfolio">EQUIPEMENTS</a></li>
+				  <li><a href="../index.html#pricing">AGENDA</a></li>
+				  <li><a href="../index.html#contact">E-LEARNING</a></li>
+	  
+				  <li><a href="../index.html#contact">CONTACT</a></li>
+	  
+				</ul>
+			  </nav><!-- .nav-menu -->
+	  
+			</div>
+		  </div>
+	  
+		</div>
+    </header>
+  <body class=" opening hide-UI view2D- zoom-large data-close controls-close">
+    
+    <div id="navbar">
+      <a id="toggle-data" href="#data"><i class="icon-data"></i>Data</a>
+
+      <a id="toggle-controls" href="#controls"><i class="icon-controls"></i>Controls</a>
+    </div>
+    <div id="data">
+      
+      <a class="sun" title="sun" href="#sunspeed">Sun</a>
+      <a class="mercury" title="mercury" href="#mercuryspeed">Mercury</a>
+      <a class="venus" title="venus" href="#venusspeed">Venus</a>
+      <a class="earth active" title="earth" href="#earthspeed">Earth</a>
+      <a class="mars" title="mars" href="#marsspeed">Mars</a>
+      <a class="jupiter" title="jupiter" href="#jupiterspeed">Jupiter</a>
+      <a class="saturn" title="saturn" href="#saturnspeed">Saturn</a>
+      <a class="uranus" title="uranus" href="#uranusspeed">Uranus</a>
+      <a class="neptune" title="neptune" href="#neptunespeed">Neptune</a>
+    </div>
+    <div id="controls">
+      <label class="">
+      </label>
+      <label class="set-zoom">
+        <input type="checkbox">
+      </label>
+      <label>
+        <input type="radio" class="set-speed" name="scale" checked>
+        <span>Speed</span>
+      </label>
+      <label>
+        <input type="radio" class="set-size" name="scale">
+        <span>Size</span>
+      </label>
+      <label>
+        <input type="radio" class="set-distance" name="scale">
+        <span>Distance</span>
+      </label>
+      
+    </div>
+    <div id="universe" class="scale-stretched">
+      <div id="galaxy">
+        <div id="solar-system" class="earth">
+          <div id="mercury" class="orbit">
+            <div class="pos">
+              <div class="planet">
+                <dl class="infos">
+                  <dt>Mercury</dt>
+                  <dd><span></span></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div id="venus" class="orbit">
+            <div class="pos">
+              <div class="planet">
+                <dl class="infos">
+                  <dt>Venus</dt>
+                  <dd><span></span></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div id="earth" class="orbit">
+            <div class="pos">
+              <div class="orbit">
+                <div class="pos">
+                  <div class="moon"></div>
+                </div>
+              </div>
+              <div class="planet">
+                <dl class="infos">
+                  <dt>Earth</dt>
+                  <dd><span></span></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div id="mars" class="orbit">
+            <div class="pos">
+              <div class="planet">
+                <dl class="infos">
+                  <dt>Mars</dt>
+                  <dd><span></span></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div id="jupiter" class="orbit">
+            <div class="pos">
+              <div class="planet">
+                <dl class="infos">
+                  <dt>Jupiter</dt>
+                  <dd><span></span></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div id="saturn" class="orbit">
+            <div class="pos">
+              <div class="planet">
+                <div class="ring"></div>
+                <dl class="infos">
+                  <dt>Saturn</dt>
+                  <dd><span></span></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div id="uranus" class="orbit">
+            <div class="pos">
+              <div class="planet">
+                <dl class="infos">
+                  <dt>Uranus</dt>
+                  <dd><span></span></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div id="neptune" class="orbit">
+            <div class="pos">
+              <div class="planet">
+                <dl class="infos">
+                  <dt>Neptune</dt>
+                  <dd><span></span></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div id="sun">
+            <dl class="infos">
+              <dt>Sun</dt>
+              <dd><span></span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    if (typeof jQuery == 'undefined') { 
+      document.write(unescape("%3Cscript src='js/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+    </script>
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/scripts.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js'></script>
+		 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+		 <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/191814/lazysizes.min.js'></script><script  src="./script.js"></script>
+		 <script src="../assets/vendor/jquery/jquery.min.js"></script>
+		 <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		 <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+		 <script src="../assets/vendor/php-email-form/validate.js"></script>
+		 <script src="../assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+		 <script src="../assets/vendor/counterup/counterup.min.js"></script>
+		 <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+		 <script src="../assets/vendor/venobox/venobox.min.js"></script>
+		 <script src="../assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  </body>
+  
+</html>
